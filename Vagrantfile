@@ -36,8 +36,18 @@ service lightdm restart
 # install Chromium  browser
 apt-get install -y chromium-browser
 
-# install Node.js
-apt-get install -y npm
+# install latest Node.js and NPM version
+export DEBIAN_FRONTEND=noninteractive
+apt-get install -y python-software-properties python g++ make
+add-apt-repository -y ppa:chris-lea/node.js
+apt-get update -y
+apt-get install -y nodejs
+
+# install latest MongoDB version
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+apt-get update -y
+apt-get install -y mongodb-10gen
 
 # setup development: GIT, VIM/GVIM, ...
 apt-get install -y git vim vim-gnome
