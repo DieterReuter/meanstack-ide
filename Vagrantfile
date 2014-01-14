@@ -42,7 +42,7 @@ apt-get install -y git vim vim-gnome
 
 
 ###--debug---
-if [ 0=1 ]; then
+if [ 0 -eq 1 ]; then
 
 # install latest MongoDB version
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
