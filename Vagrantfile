@@ -41,18 +41,21 @@ apt-get install -y chromium-browser
 apt-get install -y git vim vim-gnome
 
 
-# install latest MongoDB version
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-apt-get update -y
-apt-get install -y mongodb-10gen
-
 ###--debug---
 if [ 0=1 ]; then
 
+# install latest MongoDB version
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+apt-get update -y
+apt-get install -y mongodb-10gen
+
 # install latest Node.js and NPM version
 apt-get install -y python-software-properties python g++ make
-add-apt-repository -y ppa:chris-lea/node.js
+#add-apt-repository -y ppa:chris-lea/node.js
+#sleep 5
+echo 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee /etc/apt/sources.list.d/chris-lea-node_js-precise.list
+echo 'deb-src http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee -a /etc/apt/sources.list.d/chris-lea-node_js-precise.list
 apt-get update -y
 apt-get install -y nodejs
 
