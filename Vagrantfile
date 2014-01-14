@@ -48,7 +48,7 @@ apt-get update -y
 apt-get install -y mongodb-10gen
 
 ###--debug---
-if [ 0 ]; then
+if [ 0=1 ]; then
 
 # install latest Node.js and NPM version
 apt-get install -y python-software-properties python g++ make
