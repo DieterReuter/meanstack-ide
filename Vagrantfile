@@ -60,6 +60,10 @@ npm install -g yo
 npm install -g generator-webapp
 npm install -g generator-angular
 
+# set default for gem/install to no-doc/no-ri
+echo "gem: --no-document --no-rdoc --no-ri" | sudo -u vagrant tee ~/.gemrc
+gem install compass
+
 # create Launcher with our preferred applications
 # (installed Applications see /usr/share/applications/*.desktop)
 sudo -E -u vagrant DISPLAY=:0.0 gsettings set com.canonical.Unity.Launcher favorites "['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']"
