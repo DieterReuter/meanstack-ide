@@ -47,6 +47,9 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 apt-get update -y
 apt-get install -y mongodb-10gen
 
+###--debug---
+if [ 0 ]; then
+
 # install latest Node.js and NPM version
 apt-get install -y python-software-properties python g++ make
 add-apt-repository -y ppa:chris-lea/node.js
@@ -60,8 +63,12 @@ npm install -g yo
 npm install -g generator-webapp
 npm install -g generator-angular
 
+fi
+###--debug---
+
 # set default for gem/install to no-doc/no-ri
-echo "gem: --no-document --no-rdoc --no-ri" | sudo -u vagrant tee ~/.gemrc
+echo "gem: --no-document --no-rdoc --no-ri" | tee ~/.gemrc
+echo "gem: --no-document --no-rdoc --no-ri" | sudo -u vagrant tee /home/vagrant/.gemrc
 gem install compass
 
 # create Launcher with our preferred applications
