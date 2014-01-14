@@ -11,3 +11,6 @@ vagrant plugin install vagrant-pristine
 # https://github.com/nickryand/vagrant-multi-putty
 vagrant plugin install vagrant-multi-putty
 
+# https://github.com/fgrehm/vagrant-cachier
+vagrant plugin install vagrant-cachier
+

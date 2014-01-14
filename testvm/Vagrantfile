@@ -9,18 +9,15 @@ set -x
 # install latest Node.js and NPM version
 apt-get install -y python-software-properties python g++ make
 add-apt-repository -y ppa:chris-lea/node.js
-#sleep 5
-#echo 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee /etc/apt/sources.list.d/chris-lea-node_js-precise.list
-#echo 'deb-src http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee -a /etc/apt/sources.list.d/chris-lea-node_js-precise.list
 apt-get update -y
 apt-get install -y nodejs
 
-## install latest Node.js Modules
-#npm install -g bower
-#npm install -g grunt-cli
-#npm install -g yo
-#npm install -g generator-webapp
-#npm install -g generator-angular
+# install latest Node.js Modules
+npm install -g bower
+npm install -g grunt-cli
+npm install -g yo
+npm install -g generator-webapp
+npm install -g generator-angular
 
 SCRIPT
 #---script---
@@ -30,6 +27,10 @@ SCRIPT
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.auto_detect = true
+  end
+
   config.vm.hostname = "meanstack-ide-precise64"
   config.vm.box = "my-box"
   config.vm.box_url = "../package.box"

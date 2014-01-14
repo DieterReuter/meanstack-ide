@@ -52,10 +52,7 @@ apt-get install -y mongodb-10gen
 
 # install latest Node.js and NPM version
 apt-get install -y python-software-properties python g++ make
-#add-apt-repository -y ppa:chris-lea/node.js
-#sleep 5
-echo 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee /etc/apt/sources.list.d/chris-lea-node_js-precise.list
-echo 'deb-src http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee -a /etc/apt/sources.list.d/chris-lea-node_js-precise.list
+add-apt-repository -y ppa:chris-lea/node.js
 apt-get update -y
 apt-get install -y nodejs
 
@@ -90,6 +87,10 @@ SCRIPT
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.auto_detect = true
+  end
+
   config.vm.hostname = "meanstack-ide-precise64"
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
