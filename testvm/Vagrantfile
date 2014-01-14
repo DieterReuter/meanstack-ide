@@ -1,0 +1,47 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+#---script---
+#(running as user="root")
+$script = <<SCRIPT
+set -x 
+
+# install latest Node.js and NPM version
+apt-get install -y python-software-properties python g++ make
+add-apt-repository -y ppa:chris-lea/node.js
+#sleep 5
+#echo 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee /etc/apt/sources.list.d/chris-lea-node_js-precise.list
+#echo 'deb-src http://ppa.launchpad.net/chris-lea/node.js/ubuntu precise main' | tee -a /etc/apt/sources.list.d/chris-lea-node_js-precise.list
+apt-get update -y
+apt-get install -y nodejs
+
+## install latest Node.js Modules
+#npm install -g bower
+#npm install -g grunt-cli
+#npm install -g yo
+#npm install -g generator-webapp
+#npm install -g generator-angular
+
+SCRIPT
+#---script---
+
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.hostname = "meanstack-ide-precise64"
+  config.vm.box = "my-box"
+  config.vm.box_url = "../package.box"
+  
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true
+    # Use VBoxManage to customize the VM. For example to change memory:
+    vb.customize ["modifyvm", :id, "--memory", "1024", "--cpus", "1"]
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+  end
+
+  # Provision using the shell to install
+  config.vm.provision "shell", inline: $script
+  
+end
