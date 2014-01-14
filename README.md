@@ -1,7 +1,7 @@
 meanstack-ide
 =============
 
-An instant VitualMachine for development with the MEAN Stack: 
+An instant VitualMachine for application development with the MEAN Stack: 
 
 `M`ongoDB - v2.4.9
 
@@ -10,6 +10,20 @@ An instant VitualMachine for development with the MEAN Stack:
 `A`ngular - 
 
 `N`ode.js - v0.10.24 (NPM: v1.3.21)
+
+
+Already globally installed Node.js development tools:
+
+`npm install -g bower` - v1.2.8
+
+`npm install -g grunt-cli` - v0.1.11
+
+`npm install -g yo` - v1.1.2
+
+`npm install -g generator-webapp` - v0.4.6
+
+`npm install -g generator-angular` - v0.7.1
+
 
 Easy start developing for the MEAN Stack on Ubuntu 12.04 (Precise 64Bit).
 
