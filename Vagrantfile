@@ -30,19 +30,12 @@ apt-get install -y gnome-panel
 apt-get install -y unity-lens-applications
 sudo -E -u vagrant gconftool -s /apps/gnome-terminal/profiles/Default/use_system_font -t bool false
 
-# start desktop (using autologin for user "vagrant")
-echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
-service lightdm restart
 
-# install Chromium  browser
-apt-get install -y chromium-browser
-
-# setup development: GIT, VIM/GVIM, ...
-apt-get install -y git vim vim-gnome
-
+#-----------------------------------------
 
 ###--debug---
-if [ 0 -eq 1 ]; then
+#if [ 0 -eq 1 ]; then
+if [ 1 -eq 1 ]; then
 
 # install latest MongoDB version
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -70,6 +63,18 @@ fi
 echo "gem: --no-document --no-rdoc --no-ri" | tee ~/.gemrc
 echo "gem: --no-document --no-rdoc --no-ri" | sudo -u vagrant tee /home/vagrant/.gemrc
 gem install compass
+
+#-----------------------------------------
+
+# start desktop (using autologin for user "vagrant")
+echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
+service lightdm restart
+
+# install Chromium  browser
+apt-get install -y chromium-browser
+
+# setup development: GIT, VIM/GVIM, ...
+apt-get install -y git vim vim-gnome
 
 # create Launcher with our preferred applications
 # (installed Applications see /usr/share/applications/*.desktop)
