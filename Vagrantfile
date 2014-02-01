@@ -47,6 +47,7 @@ apt-get install -y mongodb-10gen
 apt-get install -y python-software-properties python g++ make
 add-apt-repository -y ppa:chris-lea/node.js
 apt-get update -y
+apt-get install -y curl
 apt-get install -y nodejs
 
 # install latest Node.js Modules
