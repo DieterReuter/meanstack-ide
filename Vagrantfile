@@ -55,6 +55,7 @@ sudo apt-get update -y
 sudo apt-get install -y vim
 sudo apt-get install -y curl
 sudo apt-get install -y rake
+sudo apt-get install -y zsh
 
 # install latest Node.js Modules
 npm install -g bower

@@ -9,7 +9,7 @@ sudo apt-get install -y vim
 sudo apt-get install -y curl
 sudo apt-get install -y rake
 #sudo gem install rake
-#sudo apt-get install -y zsh
+sudo apt-get install -y zsh
 
 # now, install YADR 
 ###sh -c "`curl -fsSL https://raw.github.com/skwp/dotfiles/master/install.sh`"
