@@ -47,8 +47,14 @@ apt-get install -y mongodb-10gen
 apt-get install -y python-software-properties python g++ make
 add-apt-repository -y ppa:chris-lea/node.js
 apt-get update -y
-apt-get install -y curl
 apt-get install -y nodejs
+
+# install VIM 7.4
+sudo add-apt-repository -y ppa:fcwu-tw/ppa
+sudo apt-get update -y
+sudo apt-get install -y vim
+sudo apt-get install -y curl
+sudo apt-get install -y rake
 
 # install latest Node.js Modules
 npm install -g bower
