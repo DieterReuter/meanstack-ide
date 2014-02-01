@@ -1,9 +1,9 @@
-#curl https://gist.github.com/mudasobwa/5308070/raw/fdfac86e7c521b3333c101f135e5105c06da3894/prompt_mudasobwa_setup.sh -o ~/.zsh.prompts/prompt_mudasobwa_setup
-#cat << END >> ~/.zshrc
-#autoload -Uz promptinit
-#promptinit
-#prompt mudasobwa
-#END
+curl https://gist.github.com/mudasobwa/5308070/raw/fdfac86e7c521b3333c101f135e5105c06da3894/prompt_mudasobwa_setup.sh -o ~/.zsh.prompts/prompt_mudasobwa_setup
+cat << END >> ~/.zshrc
+autoload -Uz promptinit
+promptinit
+prompt mudasobwa
+END
 
 mkdir -p ~/.fonts
 cd ~/.fonts
