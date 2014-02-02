@@ -14,10 +14,13 @@ cd /usr/share/fonts/ && sudo git clone https://github.com/scotu/ubuntu-mono-powe
 
 sudo fc-cache -vf
 
+cd
 npm install powerline
-cat <<BASHRC >> ~/.bashrc
+cat <<'BASHRC' >> ~/.bashrc
 function _update_ps1() {
    export PS1="$(~/.npm/powerline/0.0.1/package/powerline.js $? --shell bash --depth 4)"
 }
 export PROMPT_COMMAND="_update_ps1"
 BASHRC
+
+echo "You have to restart your desktop now."
