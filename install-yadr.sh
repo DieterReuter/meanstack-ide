@@ -18,7 +18,7 @@ sudo apt-get install -y zsh
 git clone https://github.com/skwp/dotfiles ~/.yadr
 # patch out line ending
 sed -i 's/set list listchars/"set list listchars/g' ~/.yadr/vimrc
-echo ":set g:session_autosave = 'no'" >> ~/.yadr/vimrc
+#echo ":set g:session_autosave = 'no'" >> ~/.yadr/vimrc
 cd ~/.yadr 
 SHELL=zsh rake install
 
