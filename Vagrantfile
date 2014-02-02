@@ -88,20 +88,12 @@ cd /home/vagrant
 
 fc-cache -vf
 
-npm install powerline
-if [ -e "/home/vagrant/.npm/powerline/0.0.1/package/powerline.js" ] then
+npm install -g powerline
 sudo -E -u vagrant cat <<'BASHRC' >> /home/vagrant/.bashrc
 function _update_ps1() {
-   export PS1="$(/home/vagrant/.npm/powerline/0.0.1/package/powerline.js $? --shell bash --depth 4)"
+   export PS1="$(powerline $? --shell bash --depth 4)"
 }
 BASHRC
-else
-sudo -E -u vagrant cat <<'BASHRC' >> /home/vagrant/.bashrc
-function _update_ps1() {
-   export PS1="$(/home/vagrant/node_modules/powerline/powerline.js $? --shell bash --depth 4)"
-}
-BASHRC
-fi
 export PROMPT_COMMAND="_update_ps1"
 
 
