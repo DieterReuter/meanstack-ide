@@ -12,6 +12,9 @@ sed -i 's/"us"/"de"/g' /etc/default/keyboard
 apt-get install -y console-common
 install-keymap de
 
+# set to UTF8 locale
+sudo update-locale LANG=en_US.uft8 LC_ALL=en_US.utf8
+
 # set ubuntu download mirror
 # Aachen:   10Gbit, http://ftp.halifax.rwth-aachen.de/ubuntu/ 
 # Erlangen: 1GBit,  http://ftp.fau.de/ubuntu/ 
