@@ -12,6 +12,9 @@ sed -i 's/"us"/"de"/g' /etc/default/keyboard
 apt-get install -y console-common
 install-keymap de
 
+# set to UTF8 locale for later powerline 
+sudo update-locale LANG=en_US.uft8 LC_ALL=en_US.utf8
+
 # set ubuntu download mirror
 # Aachen:   10Gbit, http://ftp.halifax.rwth-aachen.de/ubuntu/ 
 # Erlangen: 1GBit,  http://ftp.fau.de/ubuntu/ 
@@ -77,6 +80,30 @@ gem install compass
 gem install rake
 
 #-----------------------------------------
+
+# powerline
+
+cd /usr/share/fonts/ && git clone https://github.com/scotu/ubuntu-mono-powerline.git
+cd /home/vagrant
+
+fc-cache -vf
+
+npm install powerline
+if [ -e "/home/vagrant/.npm/powerline/0.0.1/package/powerline.js" ] then
+sudo -E -u vagrant cat <<'BASHRC' >> /home/vagrant/.bashrc
+function _update_ps1() {
+   export PS1="$(/home/vagrant/.npm/powerline/0.0.1/package/powerline.js $? --shell bash --depth 4)"
+}
+BASHRC
+else
+sudo -E -u vagrant cat <<'BASHRC' >> /home/vagrant/.bashrc
+function _update_ps1() {
+   export PS1="$(/home/vagrant/node_modules/powerline/powerline.js $? --shell bash --depth 4)"
+}
+BASHRC
+fi
+export PROMPT_COMMAND="_update_ps1"
+
 
 # start desktop (using autologin for user "vagrant")
 echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
