@@ -81,11 +81,12 @@ gem install rake
 
 #-----------------------------------------
 
-# powerline
+# setup development: GIT, VIM/GVIM, ...
+apt-get install -y git vim vim-gnome
 
+# install powerline fonts
 cd /usr/share/fonts/ && git clone https://github.com/scotu/ubuntu-mono-powerline.git
 cd /home/vagrant
-
 fc-cache -vf
 
 npm install -g powerline
@@ -103,9 +104,6 @@ service lightdm restart
 
 # install Chromium  browser
 apt-get install -y chromium-browser
-
-# setup development: GIT, VIM/GVIM, ...
-apt-get install -y git vim vim-gnome
 
 # create Launcher with our preferred applications
 # (installed Applications see /usr/share/applications/*.desktop)
