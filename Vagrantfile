@@ -57,6 +57,9 @@ sudo apt-get install -y curl
 sudo apt-get install -y rake
 sudo apt-get install -y zsh
 
+# install Python pip
+sudo apt-get install -y python-pip
+
 # install latest Node.js Modules
 npm install -g bower
 npm install -g grunt-cli
@@ -71,6 +74,7 @@ fi
 echo "gem: --no-document --no-rdoc --no-ri" | tee ~/.gemrc
 echo "gem: --no-document --no-rdoc --no-ri" | sudo -u vagrant tee /home/vagrant/.gemrc
 gem install compass
+gem install rake
 
 #-----------------------------------------
 
