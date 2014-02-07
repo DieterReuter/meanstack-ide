@@ -125,9 +125,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-  config.vm.network :forwarded_port, :host => 443, :guest => 443
-  config.vm.network :forwarded_port, :host => 631, :guest => 631
-  config.vm.network :forwarded_port, :host => 515, :guest => 515
+  config.vm.network :forwarded_port, :host => 443, :guest => 4443
+  config.vm.network :forwarded_port, :host => 631, :guest => 6631
+  config.vm.network :forwarded_port, :host => 515, :guest => 5515
   config.vm.network :forwarded_port, :host => 9100, :guest => 9100
   
   config.vm.provider :virtualbox do |vb|
