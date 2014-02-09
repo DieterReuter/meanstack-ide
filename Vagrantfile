@@ -107,7 +107,9 @@ apt-get install -y chromium-browser
 
 # create Launcher with our preferred applications
 # (installed Applications see /usr/share/applications/*.desktop)
+sleep 10
 sudo -E -u vagrant DISPLAY=:0.0 gsettings set com.canonical.Unity.Launcher favorites "['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']"
+sleep 10
 
 # setup VBox Guest Additions
 /etc/init.d/vboxadd-x11 setup
@@ -124,12 +126,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "meanstack-ide-precise64"
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-
-  config.vm.network :forwarded_port, :host => 443, :guest => 4443
-  config.vm.network :forwarded_port, :host => 631, :guest => 6631
-  config.vm.network :forwarded_port, :host => 515, :guest => 5515
-  config.vm.network :forwarded_port, :host => 9100, :guest => 9100
   
+  if ENV['_system_type'] == 'Darwin'
+    # Mac OSX Host (don't use restricted TCP ports)
+    config.vm.network :forwarded_port, :host => 8888, :guest => 8888
+    config.vm.network :forwarded_port, :host => 4443, :guest => 4443
+    config.vm.network :forwarded_port, :host => 6631, :guest => 6631
+    config.vm.network :forwarded_port, :host => 5515, :guest => 5515
+    config.vm.network :forwarded_port, :host => 9100, :guest => 9100
+  else
+    # Windows Host (not a problem to use restricted TCP ports)
+    config.vm.network :forwarded_port, :host => 80, :guest => 8888
+    config.vm.network :forwarded_port, :host => 443, :guest => 4443
+    config.vm.network :forwarded_port, :host => 631, :guest => 6631
+    config.vm.network :forwarded_port, :host => 515, :guest => 5515
+    config.vm.network :forwarded_port, :host => 9100, :guest => 9100
+  end
+
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
     # Use VBoxManage to customize the VM. For example to change memory:
