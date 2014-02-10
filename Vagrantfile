@@ -33,6 +33,9 @@ apt-get install -y gnome-panel
 apt-get install -y unity-lens-applications
 sudo -E -u vagrant gconftool -s /apps/gnome-terminal/profiles/Default/use_system_font -t bool false
 
+# remove Ubuntu automatic update/upgrade
+apt-get purge -y unattended-upgrades
+
 # install git
 sudo apt-get install -y git
 
