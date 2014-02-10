@@ -4,4 +4,3 @@
 .vagrant
 package.box*
 debug
-vundle.vimrc.save
