@@ -55,7 +55,7 @@ apt-get install -y nodejs
 # install VIM 7.4
 sudo add-apt-repository -y ppa:fcwu-tw/ppa
 sudo apt-get update -y
-sudo apt-get install -y vim
+sudo apt-get install -y vim vim-gnome
 sudo apt-get install -y curl
 sudo apt-get install -y rake
 sudo apt-get install -y zsh
@@ -80,23 +80,6 @@ gem install compass
 gem install rake
 
 #-----------------------------------------
-
-# setup development: GIT, VIM/GVIM, ...
-apt-get install -y git vim vim-gnome
-
-# install powerline fonts
-cd /usr/share/fonts/ && git clone https://github.com/scotu/ubuntu-mono-powerline.git
-cd /home/vagrant
-fc-cache -vf
-
-npm install -g powerline
-sudo -E -u vagrant cat <<'BASHRC' >> /home/vagrant/.bashrc
-function _update_ps1() {
-   export PS1="$(powerline $? --shell bash --depth 4)"
-}
-export PROMPT_COMMAND="_update_ps1"
-BASHRC
-
 
 # start desktop (using autologin for user "vagrant")
 echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
