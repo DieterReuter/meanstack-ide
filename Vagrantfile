@@ -33,6 +33,8 @@ apt-get install -y gnome-panel
 apt-get install -y unity-lens-applications
 sudo -E -u vagrant gconftool -s /apps/gnome-terminal/profiles/Default/use_system_font -t bool false
 
+# install git
+sudo apt-get install -y git
 
 #-----------------------------------------
 
