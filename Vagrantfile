@@ -87,8 +87,11 @@ gem install rake
 echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
 service lightdm restart
 
-# install Chromium  browser
+# install Chromium browser
 apt-get install -y chromium-browser
+
+# install some usefull devtools
+apt-get install -y screenkey
 
 # create Launcher with our preferred applications
 # (installed Applications see /usr/share/applications/*.desktop)
