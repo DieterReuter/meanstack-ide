@@ -101,12 +101,7 @@ cat <<GSCHEMA | sudo tee /usr/share/glib-2.0/schemas/10_local-unity-launcher.gsc
 [com.canonical.Unity.Launcher]
 favorites=['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']
 GSCHEMA
-
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
-
-service lightdm restart
-
-sleep 15
 
 # setup VBox Guest Additions
 /etc/init.d/vboxadd-x11 setup
