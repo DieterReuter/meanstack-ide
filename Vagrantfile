@@ -112,6 +112,9 @@ sleep 15
 /etc/init.d/vboxadd-x11 setup
 service lightdm restart
 
+# install external resources
+sudo -E -u vagrant /vagrant/install-resources.sh
+
 SCRIPT
 #---script---
 
