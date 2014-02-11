@@ -86,9 +86,8 @@ gem install rake
 
 #-----------------------------------------
 
-# start desktop (using autologin for user "vagrant")
-echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
-service lightdm restart
+# SCRIPT
+# $offscript = <<SCRIPT
 
 # install Chromium browser
 apt-get install -y chromium-browser
@@ -96,11 +95,21 @@ apt-get install -y chromium-browser
 # install some usefull devtools
 apt-get install -y screenkey
 
+# start desktop (using autologin for user "vagrant")
+echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
+
 # create Launcher with our preferred applications
 # (installed Applications see /usr/share/applications/*.desktop)
-sleep 10
-sudo -E -u vagrant DISPLAY=:0.0 gsettings set com.canonical.Unity.Launcher favorites "['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']"
-sleep 10
+cat <<GSCHEMA | sudo tee /usr/share/glib-2.0/schemas/10_local-unity-launcher.gschema.override
+[com.canonical.Unity.Launcher]
+favorites=['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']
+GSCHEMA
+
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+service lightdm restart
+
+sleep 15
 
 # setup VBox Guest Additions
 /etc/init.d/vboxadd-x11 setup
