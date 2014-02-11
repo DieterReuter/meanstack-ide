@@ -86,9 +86,6 @@ gem install rake
 
 #-----------------------------------------
 
-# SCRIPT
-# $offscript = <<SCRIPT
-
 # install Chromium browser
 apt-get install -y chromium-browser
 
