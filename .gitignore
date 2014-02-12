@@ -1,5 +1,6 @@
 *.swp
 *.swo
+*.bak
 *~
 .vagrant
 package.box*
