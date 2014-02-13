@@ -28,7 +28,6 @@ dpkg-reconfigure -f noninteractive tzdata
 
 # update/upgrade and install Ubuntu desktop
 apt-get upgrade -y
-apt-get install -y linux-headers-$(uname -r)
 apt-get install -y --no-install-recommends ubuntu-desktop
 apt-get install -y gnome-panel
 apt-get install -y unity-lens-applications
@@ -93,8 +92,6 @@ apt-get install -y chromium-browser
 # install some usefull devtools
 apt-get install -y screenkey
 
-apt-get install -y wireshark
-
 # start desktop (using autologin for user "vagrant")
 echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
 
@@ -102,13 +99,21 @@ echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
 # (installed Applications see /usr/share/applications/*.desktop)
 cat <<GSCHEMA | sudo tee /usr/share/glib-2.0/schemas/10_local-unity-launcher.gschema.override
 [com.canonical.Unity.Launcher]
-favorites=['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop', 'wireshark.desktop']
+favorites=['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']
 GSCHEMA
+
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+service lightdm restart
+
+sleep 15
 
 # setup VBox Guest Additions
 /etc/init.d/vboxadd-x11 setup
 service lightdm restart
+
+# install external resources
+sudo -E -u vagrant /vagrant/install-resources.sh
 
 SCRIPT
 #---script---
@@ -131,9 +136,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, :host => 9100, :guest => 9100
   else
     # Windows Host (not a problem to use restricted TCP ports)
-    config.vm.network :forwarded_port, :host => 8888, :guest => 8888
-    config.vm.network :forwarded_port, :host => 4443, :guest => 4443
-    config.vm.network :forwarded_port, :host => 6631, :guest => 6631
+    config.vm.network :forwarded_port, :host => 80, :guest => 8888
+    config.vm.network :forwarded_port, :host => 443, :guest => 4443
+    config.vm.network :forwarded_port, :host => 631, :guest => 6631
     config.vm.network :forwarded_port, :host => 515, :guest => 5515
     config.vm.network :forwarded_port, :host => 9100, :guest => 9100
   end
