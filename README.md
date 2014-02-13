@@ -5,7 +5,7 @@ An instant VitualMachine for application development with the MEAN Stack:
 
 `M`ongoDB - v2.4.9, see [MongoDB.com](http://www.mongodb.com)
 
-`E`xpress - , see [ExpressJS.com](http://expressjs.com)
+`E`xpress - v3.4.8, see [ExpressJS.com](http://expressjs.com)
 
 `A`ngular - , see [AngularJS.org](http://angularjs.org)
 

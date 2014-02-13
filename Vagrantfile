@@ -70,6 +70,7 @@ sudo apt-get install -y zsh
 sudo apt-get install -y python-pip
 
 # install latest Node.js Modules
+npm install -g express
 npm install -g bower
 npm install -g grunt-cli
 npm install -g yo
