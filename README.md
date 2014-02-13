@@ -38,7 +38,7 @@ Just clone this repo and call `vagrant up` with the following commands:
     vagrant up
 
 ## Adding my Dotfiles
-For a full featured Node.js/JavaScript IDE I'd like to recommend installing my personal Dotfiles.
+For a full featured Node.js/JavaScript IDE I'd like to recommend installing my personal [Dotfiles](https://github.com/DieterReuter/dotfiles).
 There's an extensively fine tuned VIM 7.4 with JS specific Code Completion, Syntax Highlighting 
 and other useful stuff.  Enjoy it.
 
