@@ -92,7 +92,13 @@ apt-get install -y chromium-browser
 
 # install some useful devtools
 apt-get install -y screenkey
+
+# install wireshark and allow user vagrant to use it
 apt-get install -y wireshark
+addgroup -system wireshark
+chown root:wireshark /usr/bin/dumpcap
+setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
+usermod -a -G wireshark vagrant
 
 # start desktop (using autologin for user "vagrant")
 echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
