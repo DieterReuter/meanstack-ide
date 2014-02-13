@@ -90,8 +90,9 @@ gem install rake
 # install Chromium browser
 apt-get install -y chromium-browser
 
-# install some usefull devtools
+# install some useful devtools
 apt-get install -y screenkey
+apt-get install -y wireshark
 
 # start desktop (using autologin for user "vagrant")
 echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
@@ -100,7 +101,14 @@ echo "autologin-user=vagrant" | tee -a /etc/lightdm/lightdm.conf
 # (installed Applications see /usr/share/applications/*.desktop)
 cat <<GSCHEMA | sudo tee /usr/share/glib-2.0/schemas/10_local-unity-launcher.gschema.override
 [com.canonical.Unity.Launcher]
-favorites=['nautilus-home.desktop', 'chromium-browser.desktop', 'gnome-terminal.desktop', 'gvim.desktop', 'ubuntu-software-center.desktop', 'gnome-control-center.desktop']
+favorites=['nautilus-home.desktop', \
+           'chromium-browser.desktop', \
+           'gnome-terminal.desktop', \
+           'gvim.desktop', \
+           'ubuntu-software-center.desktop', \
+           'gnome-control-center.desktop', \
+           'wireshark.desktop' \
+]
 GSCHEMA
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
