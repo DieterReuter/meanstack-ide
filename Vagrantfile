@@ -132,7 +132,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, :host => 8888, :guest => 8888
     config.vm.network :forwarded_port, :host => 4443, :guest => 4443
     config.vm.network :forwarded_port, :host => 6631, :guest => 6631
-    config.vm.network :forwarded_port, :host => 5515, :guest => 5515
+    config.vm.network :forwarded_port, :host => 515, :guest => 5515
     config.vm.network :forwarded_port, :host => 9100, :guest => 9100
   end
 
