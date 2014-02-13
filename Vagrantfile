@@ -28,7 +28,7 @@ dpkg-reconfigure -f noninteractive tzdata
 
 # update/upgrade and install Ubuntu desktop
 apt-get upgrade -y
-apt-get -y install linux-headers-$(uname -r)
+apt-get install -y linux-headers-$(uname -r)
 apt-get install -y --no-install-recommends ubuntu-desktop
 apt-get install -y gnome-panel
 apt-get install -y unity-lens-applications
