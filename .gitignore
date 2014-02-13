@@ -1,6 +1,8 @@
 *.swp
 *.swo
+*.bak
 *~
 .vagrant
 package.box*
 debug
+resources
