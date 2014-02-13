@@ -20,9 +20,13 @@ Already globally installed Node.js development tools:
 
 `npm install -g yo` - v1.1.2, see [Yeoman.io](http://yeoman.io)
 
-`npm install -g generator-webapp` - v0.4.7
+`npm install -g generator-webapp` - v0.4.7, see [GitHub:yeoman/generator-webapp](https://github.com/yeoman/generator-webapp)
 
-`npm install -g generator-angular` - v0.7.1
+`npm install -g generator-angular` - v0.7.1, see [GitHub:yeoman/generator-angular](https://github.com/yeoman/generator-angular)
+
+`npm install -g forever` - v0.10.11, see [GitHub:nodejitsu/forever](https://github.com/nodejitsu/forever)
+
+`npm install -g nodemon` - v1.0.14, see [Nodemon.io](http://nodemon.io) or [GitHub:remy/nodemon](https://github.com/remy/nodemon)
 
 
 Easy start developing for the MEAN Stack on Ubuntu 12.04 (Precise 64Bit).

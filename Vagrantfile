@@ -75,6 +75,8 @@ npm install -g grunt-cli
 npm install -g yo
 npm install -g generator-webapp
 npm install -g generator-angular
+npm install -g forever
+npm install -g nodemon
 
 fi
 ###--debug---
