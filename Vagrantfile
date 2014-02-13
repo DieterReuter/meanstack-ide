@@ -114,9 +114,9 @@ favorites=['nautilus-home.desktop', \
            'chromium-browser.desktop', \
            'gnome-terminal.desktop', \
            'gvim.desktop', \
+           'wireshark.desktop' \
            'ubuntu-software-center.desktop', \
            'gnome-control-center.desktop', \
-           'wireshark.desktop' \
 ]
 GSCHEMA
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
