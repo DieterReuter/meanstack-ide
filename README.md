@@ -3,22 +3,22 @@ meanstack-ide
 
 An instant VitualMachine for application development with the MEAN Stack: 
 
-`M`ongoDB - v2.4.9
+`M`ongoDB - v2.4.9, see [MongoDB.com](http://www.mongodb.com)
 
-`E`xpress - 
+`E`xpress - , see [ExpressJS.com](http://expressjs.com)
 
-`A`ngular - 
+`A`ngular - , see [AngularJS.org](http://angularjs.org)
 
-`N`ode.js - v0.10.25 (NPM: v1.3.24)
+`N`ode.js - v0.10.25 (NPM: v1.3.24), see [NodeJS.org](http://nodejs.org)
 
 
 Already globally installed Node.js development tools:
 
-`npm install -g bower` - v1.2.8
+`npm install -g bower` - v1.2.8, see [Bower.io](http://bower.io)
 
-`npm install -g grunt-cli` - v0.1.13
+`npm install -g grunt-cli` - v0.1.13, see [GruntJS.com](http://gruntjs.com)
 
-`npm install -g yo` - v1.1.2
+`npm install -g yo` - v1.1.2, see [Yeoman.io](http://yeoman.io)
 
 `npm install -g generator-webapp` - v0.4.7
 
@@ -43,6 +43,13 @@ There's an extensively fine tuned VIM 7.4 with JS specific Code Completion, Synt
 and other useful stuff.  Enjoy it.
 
     bash /vagrant/install-dotfiles-dr.sh
+
+or
+
+    git clone https://github.com/DieterReuter/dotfiles.git ~/code/dotfiles
+    cd ~/code/dotfiles
+    ./sync.sh -f		
+
 
 # Licensing
 Copyright (c) 2014 Dieter Reuter
