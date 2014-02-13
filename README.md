@@ -28,6 +28,8 @@ Already globally installed Node.js development tools:
 
 `npm install -g nodemon` - v1.0.14, see [Nodemon.io](http://nodemon.io) or [GitHub:remy/nodemon](https://github.com/remy/nodemon)
 
+`npm install -g http-console` - v0.6.2, see [GitHub:cloudhead/http-console](https://github.com/cloudhead/http-console)
+
 
 Easy start developing for the MEAN Stack on Ubuntu 12.04 (Precise 64Bit).
 

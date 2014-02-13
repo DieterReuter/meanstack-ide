@@ -77,6 +77,7 @@ npm install -g generator-webapp
 npm install -g generator-angular
 npm install -g forever
 npm install -g nodemon
+npm install -g http-console
 
 fi
 ###--debug---
