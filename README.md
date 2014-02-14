@@ -71,6 +71,11 @@ The contents of the `.extra` file may look like this one:
 Then follow the steps at <https://help.github.com/articles/set-up-git>
 If you want to generate SSH keys, follow the steps at <https://help.github.com/articles/generating-ssh-keys>
 
+Now you can clone GitHub repos with
+
+    git clone git@github.com:username/reponame.git
+
+
 # Licensing
 Copyright (c) 2014 Dieter Reuter
 
