@@ -61,7 +61,8 @@ apt-get install -y nodejs
 # install VIM 7.4
 sudo add-apt-repository -y ppa:fcwu-tw/ppa
 sudo apt-get update -y
-sudo apt-get install -y vim vim-gnome
+sudo apt-get install -y vim
+sudo apt-get install -y vim-gnome --force-yes
 sudo apt-get install -y curl
 sudo apt-get install -y rake
 sudo apt-get install -y zsh
