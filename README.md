@@ -56,6 +56,36 @@ or
     cd ~/code/dotfiles
     ./sync.sh -f		
 
+## Add user specific files for Git
+To use git via ssh key, you can provide your ssh key in the resources
+directory. This directory will be skipped from committing to git.
+
+    resources/.ssh/id_rsa
+    resources/.ssh/id_rsa.pub
+
+To provide additional environment variables for git, use the `.extra` file.
+
+    resources/.extra
+
+The contents of the `.extra` file may look like this one:
+
+    # -*- mode: sh -*-
+    # vi: set ft=sh :
+    # Git credentials
+    # Not in the repository, to prevent people from accidentally committing under my name
+    GIT_AUTHOR_NAME="Your Username"
+    GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+    git config --global user.name "$GIT_AUTHOR_NAME"
+    GIT_AUTHOR_EMAIL="your@email.com"
+    GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+    git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+Then follow the steps at <https://help.github.com/articles/set-up-git>
+If you want to generate SSH keys, follow the steps at <https://help.github.com/articles/generating-ssh-keys>
+
+Now you can clone GitHub repos with
+
+    git clone git@github.com:username/reponame.git
 
 # Licensing
 Copyright (c) 2014 Dieter Reuter
