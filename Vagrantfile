@@ -111,19 +111,19 @@ service lightdm restart
 # install external resources
 # install ssh key if provided at host
 if [ -f /vagrant/resources/.ssh/id_rsa ]; then
-  if [ ! -d ~/.ssh ]; then
-    mkdir ~/.ssh
-    chmod 700 ~/.ssh
+  if [ ! -d /home/vagrant/.ssh ]; then
+    sudo -u vagrant mkdir /home/vagrant/.ssh
+    chmod 700 /home/vagrant/.ssh
   fi
-  if [ ! -f ~/.ssh/id_rsa ]; then
-    cp /vagrant/resources/.ssh/id_rsa* ~/.ssh/
-    chmod 600 ~/.ssh/id_rsa*
+  if [ ! -f /home/vagrant/.ssh/id_rsa ]; then
+    sudo -u vagrant cp /vagrant/resources/.ssh/id_rsa* /home/vagrant/.ssh/
+    chmod 600 /home/vagrant/.ssh/id_rsa*
   fi
 fi
 
 # install .extra
 if [ -f /vagrant/resources/.extra ]; then
-  cp /vagrant/resources/.extra ~/.extra
+  sudo -u vagrant cp /vagrant/resources/.extra /home/vagrant/.extra
 fi
 SCRIPT
 #---script---
